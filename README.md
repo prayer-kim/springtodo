@@ -14,3 +14,5 @@ spring-boot framework 교육을 통해 초기 설정
 - AOP 설정
   - maven repository에서 spring boot aop 검색(https://mvnrepository.com/)
     - Spring Boot Starter AOP
+
+- Transaction 관리는 서비스에서 추가 @Transaction 어노테이션 추가 
