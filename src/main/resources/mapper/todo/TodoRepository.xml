@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.re.kitri.hellogram.todo.repository.TodoRepository">
+    <select id="selectAllTodos" resultType="kr.re.kitri.hellogram.todo.model.Todo">
+        SELECT
+           todoid,
+           content,
+           completed
+        FROM TODO_9
+    </select>
+
+    <select id="selectTodoById" resultType="kr.re.kitri.hellogram.todo.model.Todo" parameterType="java.lang.Integer">
+        SELECT
+            todoid,
+            content,
+            completed
+        FROM TODO_9
+        WHERE todoid = #{todoId}
+    </select>
+
+    <insert id="insertTodo" parameterType="kr.re.kitri.hellogram.todo.model.Todo">
+        INSERT INTO TODO_9
+        (TODOID, CONTENT, COMPLETED)
+        VALUES(#{todoId}, #{content}, #{completed})
+    </insert>
+
+    <delete id="deleteTodoById" parameterType="java.lang.Integer">
+        DELETE FROM TODO_9
+        WHERE todoid = #{todoId}
+    </delete>
+
+    <update id="updateTodo" parameterType="kr.re.kitri.hellogram.todo.model.Todo">
+        UPDATE TODO_9
+        SET   todoid = #{todoId}
+        <if test="content != null">
+             , content = #{content}
+        </if>
+        <if test="completed != null">
+              , completed = #{completed}
+        </if>
+        WHERE todoid = #{todoId}
+    </update>
+</mapper>
