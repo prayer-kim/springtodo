@@ -22,4 +22,15 @@ public class LoggingAspect {
         log.debug(className + "." + methodName + "() Logging Aspect에서 시작");
 
     }
+
+    // 함수 소요시간을 사용할 때 이용 가능 함
+    @Around("execution(* kr.re.kitri.hellogram.*.controller.*Controller.*(..))")
+    public Object logging(ProceedingJoinPoint pjp) throws Throwable {
+        log.info("### start - " + pjp.getSignature().getDeclaringTypeName()
+                + " / " + pjp.getSignature().getName());
+        Object result = pjp.proceed();
+        log.info("### finished - " + pjp.getSignature().getDeclaringTypeName()
+                + " / " + pjp.getSignature().getName());
+        return result;
+    }
 }
