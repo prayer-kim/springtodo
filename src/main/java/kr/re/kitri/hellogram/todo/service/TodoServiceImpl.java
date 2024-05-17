@@ -17,10 +17,11 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public List<Todo> getAllTodos() {
-        /*의도적으로 ArithmeticException 발생*/
-        Random random = new Random();
+        /* FIXME: 의도적으로 ArithmeticException 발생*/
+        /*Random random = new Random();
         int randomNum = random.nextInt(0,4);
         log.debug("randomNum: {}", 3/randomNum);
+        */
 
         return todoRepository.selectAllTodos();
     }

@@ -25,8 +25,8 @@ public class TodoController {
     // 전체보기
     @GetMapping("/todos")
     public List<Todo> todos() {
-        log.debug("methodName:" + new Object(){}.getClass().getEnclosingMethod().getName());
-        log.debug("전체보기");
+        //log.debug("methodName:" + new Object(){}.getClass().getEnclosingMethod().getName());
+        //log.debug("전체보기");
 
         return todoService.getAllTodos();
     }

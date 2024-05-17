@@ -25,7 +25,6 @@ public class DataSourceConfiguration {
     @Bean
     public DataSource dataSource(){
         DataSource dataSource = new HikariDataSource(hikariConfig());
-        System.out.println(dataSource);
         return dataSource;
     }
 }
